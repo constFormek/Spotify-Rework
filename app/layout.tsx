@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import MobileLayout from "@/components/MobileLayout";
+import DesktopLayout from "@/components/DesktopLayout";
 
 const satoshi = localFont({
   src: [
@@ -37,7 +38,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${satoshi.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <MobileLayout>{children}  </MobileLayout>
+        <MobileLayout>{children}</MobileLayout>
+        <DesktopLayout>{children}</DesktopLayout>
       </body>
     </html>
   );
