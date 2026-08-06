@@ -1159,7 +1159,7 @@ export const IconMap = {
     default: (
       <>
         <circle
-          className="group-hover:fill-[#1ED760] fill-[#65D46E]"
+          className="fill-[#65D46E] group-hover:fill-[#1ED760]"
           cx={20.205}
           cy={20.205}
           r={20.205}
@@ -1174,7 +1174,7 @@ export const IconMap = {
     active: (
       <>
         <circle
-          className="group-hover:fill-[#1ED760] fill-[#65D46E]"
+          className="fill-[#65D46E] group-hover:fill-[#1ED760]"
           cx={20.205}
           cy={20.205}
           r={20.205}
