@@ -1392,3 +1392,11 @@ export const IconMap = {
 } satisfies IconType;
 
 export type IconName = keyof typeof IconMap;
+
+type DynamicIconShape = { active: ReactNode; default: ReactNode };
+type PerKeyCheck = {
+  [K in IconName]: (typeof IconMap)[K] extends DynamicIconShape ? K : never;
+};
+
+export type DynamicIconName = PerKeyCheck[IconName];
+export type StaticIconName = Exclude<IconName, DynamicIconName>;

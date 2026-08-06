@@ -4,11 +4,11 @@ import { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Icon from "../Icon";
-import { IconName } from "../IconMap";
+import { DynamicIconName } from "../IconMap";
 
 export type TabType = {
   label: string;
-  icon: IconName;
+  icon: DynamicIconName;
   href: string;
 };
 
