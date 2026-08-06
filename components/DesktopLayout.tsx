@@ -3,10 +3,87 @@ import { ReactNode } from "react";
 import Icon from "./Icon";
 import { DesktopLayoutTabs } from "./tab/constants";
 import Tab from "./tab/Tab";
+import { DynamicIconName, StaticIconName } from "./IconMap";
+import Link from "next/link";
 
 interface DesktopLayoutProps {
   children: ReactNode;
 }
+
+type LibraryLink = {
+  icon: StaticIconName | DynamicIconName;
+  label: string;
+  href: string;
+  isExpandable?: boolean;
+  items?: string[];
+};
+
+const LibraryLinks: LibraryLink[] = [
+  {
+    icon: "pin",
+    label: "Pins",
+    href: "/library/pins",
+    isExpandable: true,
+    items: ["A$AP ROCKY", "OTSOCHODZI"],
+  },
+
+  {
+    icon: "playlist",
+    label: "Playlists",
+    href: "/library/playlists",
+    isExpandable: true,
+    items: ["DON'T BE DUMB", "RIOTT"],
+  },
+
+  {
+    icon: "like",
+    label: "Liked songs",
+    href: "/library/liked-songs",
+    isExpandable: false,
+  },
+
+  {
+    icon: "save",
+    label: "Saves",
+    href: "/library/saves",
+    isExpandable: false,
+  },
+
+  {
+    icon: "album",
+    label: "Albums",
+    href: "/library/albums",
+    isExpandable: false,
+  },
+
+  {
+    icon: "folder",
+    label: "Folders",
+    href: "/library/folders",
+    isExpandable: false,
+  },
+
+  {
+    icon: "podcast",
+    label: "Podcasts",
+    href: "/library/podcasts",
+    isExpandable: false,
+  },
+
+  {
+    icon: "audiobook",
+    label: "Audiobooks",
+    href: "/library/audiobooks",
+    isExpandable: false,
+  },
+
+  {
+    icon: "artist",
+    label: "Artist",
+    href: "/library/artists",
+    isExpandable: false,
+  },
+];
 
 const DesktopLayout = ({ children }: DesktopLayoutProps) => {
   const libraryTab = DesktopLayoutTabs.find((t) => t.href === "/library");
@@ -53,8 +130,22 @@ const DesktopLayout = ({ children }: DesktopLayoutProps) => {
         </div>
       </div>
 
-      <div className="border-bg-secondary row-span-2 rounded-lg border">
-        library
+      <div className="row-span-2 flex flex-col gap-4 rounded-lg pt-5">
+        {LibraryLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="text-fg-secondary hover:text-fg-primary flex w-full items-center justify-between"
+          >
+            <div className="flex items-center gap-2 text-sm">
+              <Icon name={link.icon} size={40} />
+
+              {link.label}
+            </div>
+
+            {link.isExpandable && <Icon size={40} name="right" />}
+          </Link>
+        ))}
       </div>
 
       <div className="border-bg-secondary overflow-y-auto rounded-lg border">
