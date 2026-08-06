@@ -1,51 +1,8 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 import Icon from "./Icon";
-import { IconName } from "./IconMap";
-
-type TabType = {
-  label: string;
-  icon: IconName;
-  href: string;
-  id: number;
-};
-
-const MobileLayoutTabs: TabType[] = [
-  {
-    id: 1,
-    label: "Home",
-    icon: "home",
-    href: "/",
-  },
-
-  {
-    id: 2,
-    label: "Discover",
-    icon: "discover",
-    href: "/discover",
-  },
-
-  {
-    id: 3,
-    label: "Search",
-    icon: "search",
-    href: "/search",
-  },
-
-  {
-    id: 4,
-    label: "Library",
-    icon: "library",
-    href: "/library",
-  },
-
-  {
-    id: 5,
-    label: "Me",
-    icon: "user",
-    href: "/me",
-  },
-];
+import { MobileLayoutTabs } from "./tab/constants";
+import Tab from "./tab/Tab";
 
 interface MobileLayoutProps {
   children: ReactNode;
@@ -80,16 +37,15 @@ const MobileLayout = ({ children }: MobileLayoutProps) => {
             </button>
           </div>
         </div>
-        <div className="flex items-center justify-between bg-linear-to-b/longer from-[#111111]/85 to-[#111111] to-43% px-2 py-3">
+        <div className="from-bg-primary/85 to-bg-primary flex items-center justify-between bg-linear-to-b/longer to-43% px-2 py-3">
           {MobileLayoutTabs.map((tab) => (
-            <Link
-              className="text-fg-secondary flex flex-col items-center px-4 py-2 text-xs"
-              key={tab.id}
+            <Tab
+              variant="column"
+              key={tab.href}
               href={tab.href}
-            >
-              <Icon name={tab.icon} size={40} />
-              {tab.label}
-            </Link>
+              icon={tab.icon}
+              label={tab.label}
+            />
           ))}
         </div>
       </div>
