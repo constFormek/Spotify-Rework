@@ -41,7 +41,7 @@
 }
 
 body {
-  background: var(--bg-main);
+  background: var(--bg-primary);
   color: var(--fg-primary);
   font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
 }
