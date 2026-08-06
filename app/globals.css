@@ -1,31 +1,29 @@
 @import "tailwindcss";
 
 :root {
-
-  --bg-main: #F0F0F0;
-  --bg-primary: #E4E4E4;
+  --bg-main: #f0f0f0;
+  --bg-primary: #e4e4e4;
   --bg-secondary: #202020;
-  
-  --fg-primary: #1A1A1A;
-  --fg-secondary: #6E6E6E; 
+
+  --fg-primary: #1a1a1a;
+  --fg-secondary: #6e6e6e;
   --fg-tertiary: #323232;
 
-  
-  --primary: #13BF51;
+  --primary: #13bf51;
 }
 
 @theme inline {
   --color-bg-main: var(--bg-main);
   --color-bg-primary: var(--bg-primary);
   --color-bg-secondary: var(--bg-secondary);
-  
+
   --color-fg-primary: var(--fg-primary);
-  --color-fg-secondary: var(--fg-secondary); 
+  --color-fg-secondary: var(--fg-secondary);
   --color-fg-tertiary: var(--fg-tertiary);
 
   --color-primary: var(--primary);
 
-  --font-satoshi: var(--font-satoshi)
+  --font-satoshi: var(--font-satoshi);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,11 +32,11 @@
     --bg-primary: #111111;
     --bg-secondary: #202020;
 
-    --fg-primary: #E0E0E0;
-    --fg-secondary: #898989; 
+    --fg-primary: #e0e0e0;
+    --fg-secondary: #898989;
     --fg-tertiary: #323232;
 
-    --primary: #1ED760;
+    --primary: #1ed760;
   }
 }
 
