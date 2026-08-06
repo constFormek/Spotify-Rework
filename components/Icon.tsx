@@ -1,11 +1,19 @@
-import { IconMap, IconName } from "./IconMap";
+import { DynamicIconName, IconMap, StaticIconName } from "./IconMap";
 
-interface IconProps {
-  name: IconName;
-  size?: number;
-  isActive?: boolean;
-  className?: string;
-}
+type IconProps =
+  | {
+      name: StaticIconName;
+      size?: number;
+      isActive?: never;
+      className?: string;
+    }
+  | {
+      name: DynamicIconName;
+      size?: number;
+      isActive?: boolean;
+      className?: string;
+    };
+
 const Icon = ({
   name,
   size = 20,
